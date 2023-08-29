@@ -1,0 +1,18 @@
+@import "../../../../../styles.scss";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    margin-top: 20px;
+    border: none;
+    border-radius: 50px;
+    background: $danger-color;
+    font-size: 16px;
+    color: $secondary-text-color;
+    width: 60%;
+    padding: 10px;
+  }
+}

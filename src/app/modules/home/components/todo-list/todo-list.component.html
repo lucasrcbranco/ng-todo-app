@@ -1,0 +1,17 @@
+<section [ngClass]="{'loading': !hasAnyTasks()}">
+  <ul *ngIf="hasAnyTasks()">
+    <li *ngFor=" let task of taskList; let position=index">
+      <input type="checkbox" [(ngModel)]="task.checked">
+      <input type="text" [(ngModel)]="task.title" [ngClass]="{'checked':task.checked}"
+        (keyup)="removeTaskIfTitleEmpty(task.title, position)">
+      <button (click)="removeSingleTask(position)">
+        <img src="../../../../../assets/icons/trashcan.svg" alt="">
+      </button>
+    </li>
+  </ul>
+</section>
+
+<app-todo-input-add-items (emitNewTask)="createTask($event)"></app-todo-input-add-items>
+<app-todo-button-delete-all *ngIf="hasAnyTasks()" (click)="removeAllTasks()">
+
+</app-todo-button-delete-all>
